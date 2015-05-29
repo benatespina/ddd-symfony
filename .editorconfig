@@ -1,0 +1,17 @@
+; This file is part of the ddd-symfony package.
+;
+; (c) Beñat Espiña <benatespina@gmail.com>
+;
+; For the full copyright and license information, please view the LICENSE
+; file that was distributed with this source code.
+
+; top-most EditorConfig file
+root = true
+
+; Unix-style newlines
+[*]
+end_of_line = LF
+
+[*.php]
+indent_style = space
+indent_size = 4

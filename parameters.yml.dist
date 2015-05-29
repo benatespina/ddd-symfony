@@ -1,0 +1,27 @@
+# This file is part of the ddd-symfony package.
+#
+# (c) Beñat Espiña <benatespina@gmail.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+
+parameters:
+    app_dir: "%kernel.root_dir%/../../../../app"
+    twig_views_path: ["%kernel.root_dir%/../../Ui/Twig/views"]
+    symfony:
+        debug: 1
+        env: dev
+        cache: cache
+        logs: logs
+
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: ~
+    database_name: dbName
+    database_dsn: "mysql:host=localhost;dbname=%database_name%"
+    database_user: root
+    database_password: root
+
+    locale: en
+    secret: bvfbdfovfo3u5uve09dfdfv2vdfdfbFg
+    monolog_action_level: debug

@@ -1,0 +1,50 @@
+# This file is part of the ddd-symfony package.
+#
+# (c) Beñat Espiña <benatespina@gmail.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+
+imports:
+    - { resource: ../../../../../parameters.yml }
+    - { resource: security.yml }
+
+framework:
+    secret: %secret%
+    router:
+        resource: "%kernel.root_dir%/config/routing_%kernel.environment%.yml"
+        strict_requirements: %kernel.debug%
+    form: ~
+    csrf_protection: ~
+    validation: { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale: "%locale%"
+    trusted_hosts: ~
+    trusted_proxies: ~
+    session:
+        handler_id: ~
+    fragments: ~
+    http_method_override: true
+    profiler:
+        enabled: %kernel.debug%
+
+monolog:
+    handlers:
+        main:
+            type: fingers_crossed
+            action_level: %monolog_action_level%
+            handler: nested
+        nested:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
+
+twig:
+    debug: "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    globals:
+        base_asset_img: images/
+        base_asset_js: js/
+        base_asset_css: css/
+        base_asset_vendor: vendor/

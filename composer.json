@@ -1,0 +1,67 @@
+{
+    "name": "benatespina/ddd-symfony",
+    "description": "Other approach about the implementation of DDD into Symfony application",
+    "keywords": ["ddd", "symfony", "domain-driven-development"],
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Beñat Espiña",
+            "email": "benatespina@gmail.com",
+            "homepage": "http://benatespina.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "symfony/symfony": "2.6.*",
+        "doctrine/orm": "~2.5",
+        "twig/extensions": "~1.0",
+        "symfony/monolog-bundle": "~2.4",
+        "sensio/distribution-bundle": "~3.0,>=3.0.12",
+        "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
+        "incenteev/composer-parameter-handler": "~2.0",
+
+        "kreta/core-bundle": "~0.2",
+        "carlosbuenosvinos/ddd": "~1.1",
+        "black/email": "~1.1",
+        "ramsey/uuid": "~2.8",
+        "beberlei/assert": "~2.3"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.2",
+        "fabpot/php-cs-fixer": "~2.0@dev"
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "SymfonyStandard\\Composer::hookRootPackageInstall"
+        ],
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ]
+    },
+    "autoload": {
+        "psr-4": { "": "src/" }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "symfony-app-dir": "src/Infrastructure/Symfony/app",
+        "symfony-web-dir": "web",
+        "symfony-assets-install": "relative",
+        "incenteev-parameters": {
+            "file": "parameters.yml"
+        }
+    }
+}

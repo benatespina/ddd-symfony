@@ -1,0 +1,19 @@
+# This file is part of the ddd-symfony package.
+#
+# (c) Beñat Espiña <benatespina@gmail.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+#
+# @author Beñat Espiña <benatespina@gmail.com>
+# @author Asier Ramos <uthopiko@gmail.com>
+
+services:
+    sql_repository:
+        abstract: true
+        arguments:
+            - @sql_manager
+
+    user_repository:
+        parent: sql_repository
+        class: Infrastructure\Persistence\Sql\Repository\User\SqlPersistentUserRepository
