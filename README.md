@@ -27,7 +27,7 @@ Install the project's dependencies:
 $ composer install
 ```
 Configure the web server to serve the `/web` directory of this project.
-> Kreta needs PHP 5.4 or higher to run so, you don't need to configure the web server for this project,
+> This project needs PHP 5.4 or higher to run so, you don't need to configure the web server,
 > because you can use the Symfony command:
 >
 > ```
