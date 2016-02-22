@@ -37,7 +37,7 @@ class SqlManager
      */
     public function __construct($dsn, $username, $password, array $options = null)
     {
-        $this->pdo = new \PDO($dsn, $username, $password, $options);
+        $this->pdo = new \PDO($dsn, $username, $password,  array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
 
     /**
